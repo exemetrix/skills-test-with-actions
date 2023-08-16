@@ -28,9 +28,10 @@ jobs:
       - name: Run markdown lint
         run: |
           npm install remark-cli remark-preset-lint-consistent
-          npx remark . --use remark-preset-lint-consistent --frail > ./artifcats/remark-report
+          mkdir artifacts
+          npx remark . --use remark-preset-lint-consistent --frail > ./artifacts/remark-report
       
       - uses: actions/upload-artifact@v3
         with:
           name: remark-lint-report
-          path: ./artifacts
+          path: ./artifacts/
